@@ -1,39 +1,102 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Teknofest Scoreboard</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yarışma Skorboardu</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-<header>
-<h1>TEKNOFEST SİBER SAVUNMA YARIŞMASI</h1>
-</header>
+  <div class="bg-glow"></div>
 
-<div class="scoreboard">
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="shield">
+        <span class="lock">🔒</span>
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">HACKER</div>
+        <div class="brand-sub">ENGELLE</div>
+      </div>
+    </div>
 
-<table id="scoreTable">
-
-<thead>
-<tr>
-<th>Takım</th>
-<th>Görev</th>
-<th>Puan</th>
-<th>Durum</th>
-</tr>
-</thead>
-
-<tbody id="scoreboard">
-
-</tbody>
-
-</table>
-
+    <div id="winnerPopup" class="winner-popup hidden">
+  <div class="winner-box">
+    <h1>🏁 SİSTEM KURTARILDI</h1>
+    <h2 id="winnerName"></h2>
+    <p id="winnerTime"></p>
+  </div>
 </div>
+    <div class="title">
+      <div class="title-main">YARIŞMA SKORBOARDU</div>
+      <div class="title-sub">CANLI GÜNCELLEME</div>
+    </div>
 
-<script src="script.js"></script>
+    <div class="timer">
+      <div class="timer-label">KALAN SÜRE</div>
+      <div class="timer-value" id="timerValue">01:24:35</div>
+    </div>
+  </header>
 
+  <!-- MAIN GRID -->
+  <main class="grid">
+    <!-- LEFT: LEADERBOARD -->
+    <section class="card leaderboard">
+      <div class="card-head">
+        <div class="cols">
+          <span>SIRA</span>
+          <span>TAKIM ADI</span>
+          <span>TAMAMLANAN GÖREVLER</span>
+          <span>PUAN</span>
+          <span>DURUM</span>
+        </div>
+      </div>
+
+      <div class="rows" id="leaderboardRows">
+        <!-- JS dolduracak -->
+      </div>
+    </section>
+
+    <!-- RIGHT: TASKS + CHART -->
+    <aside class="side">
+      <section class="card tasks">
+        <div class="side-title">GÖREVLER</div>
+
+        <div class="task" data-task="1"><span class="pill">1</span><span class="task-name">Giriş Kapısı</span><span class="tick ok">✓</span></div>
+        <div class="task" data-task="2"><span class="pill">2</span><span class="task-name">Sunucu Oda</span><span class="tick ok">✓</span></div>
+        <div class="task" data-task="3"><span class="pill">3</span><span class="task-name">Şifre Bulmaca</span><span class="tick ok">✓</span></div>
+        <div class="task active" data-task="4"><span class="pill">4</span><span class="task-name">Güvenlik Duvarı</span><span class="tick neutral">•</span></div>
+        <div class="task danger" data-task="5"><span class="pill">5</span><span class="task-name">Final Şifresi</span><span class="tick bad">!</span></div>
+      </section>
+
+      <section class="card chart">
+        <div class="side-title">PUAN DURUMU</div>
+        <div class="chart-box">
+          <!-- basit placeholder grafik -->
+          <div class="bars">
+            <div class="bar" style="height:22%"></div>
+            <div class="bar" style="height:35%"></div>
+            <div class="bar" style="height:28%"></div>
+            <div class="bar" style="height:52%"></div>
+            <div class="bar" style="height:60%"></div>
+          </div>
+          <div class="line"></div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <!-- BOTTOM TICKER -->
+  <footer class="ticker">
+    <div class="ticker-left">SON DAKİKA:</div>
+    <div class="ticker-mid" id="tickerText">
+      TEKNOFEST-01 → G4 Görevini Tamamladı!! +25 Puan
+    </div>
+  </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
