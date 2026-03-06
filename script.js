@@ -1,6 +1,12 @@
 // ====== AYARLAR ======
 const SHEET_ID = "1H0CHwZDOZ-TgvjJzrwSiDzgYTpn7J7kZZCNUbHFTag8";
 
+async function fetchSheet(sheetName){
+  const url = `https://opensheet.elk.sh/${SHEET_ID}/${sheetName}`;
+  const res = await fetch(url);
+  return await res.json();
+}
+
 // Sekme adların (Sheets'tekiyle bire bir aynı olmalı)
 const TASK_SHEETS = [
   { task: 1, name: "Form Yanıtları 1" },
@@ -63,6 +69,33 @@ async function fetchSheet(sheetName){
   const res = await fetch(url);
   if(!res.ok) throw new Error(`Sheet okunamadı: ${sheetName}`);
   return await res.json();
+}
+
+async function loadScores(){
+
+  const data = await fetchSheet("Form Yanıtları 1");
+  console.log(data);
+
+  const table = document.getElementById("leaderboardRows");
+
+  table.innerHTML = "";
+
+  data.forEach((row, index) => {
+
+    const team = row["Takım adınızı giriniz"];
+
+    table.innerHTML += `
+      <div class="row">
+        <div class="rank">${index+1}</div>
+        <div class="team">${team}</div>
+        <div class="missions">G1</div>
+        <div class="points">100</div>
+        <div class="status">Devam</div>
+      </div>
+    `;
+
+  });
+
 }
 
 
@@ -180,7 +213,7 @@ async function computeScores(){
     return a.team.localeCompare(b.team);
   });
 
-  return { results, winner };
+
 }
 
 
@@ -300,3 +333,6 @@ async function tick(){
 startElapsedTimer();
 tick();
 setInterval(tick, REFRESH_MS);
+
+loadScores();
+setInterval(loadScores, 10000);
