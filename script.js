@@ -212,7 +212,7 @@ async function computeScores(){
     if(at !== bt) return at - bt;
     return a.team.localeCompare(b.team);
   });
-
+return { results, winner };
 
 }
 
@@ -234,7 +234,7 @@ function pointsClass(i){
 function renderLeaderboard(results, winner){
     // leaderboard çiziliyor
 
-}
+
 
 function showWinner(team,time){
 
@@ -248,6 +248,7 @@ launchConfetti()
 }
   const el = document.getElementById("leaderboardRows");
   if(!el) return;
+}
 
   el.innerHTML = "";
 
