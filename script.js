@@ -16,15 +16,6 @@ const TASK_SHEETS = [
   { task: 5, name: "Form Yanıtları 5" },
 ];
 
- let winnerShown = false;
-
- if(winner && !winnerShown){
-
-winnerShown = true;
-
-showWinner(winner.team, winTime);
-
-}
 
 // Sütun başlığı (Sheets'te görünen yazıyla bire bir aynı olmalı)
 const TEAM_COL = "Takım adınızı giriniz.";
@@ -247,7 +238,6 @@ function showWinner(team,time){
 
 document.getElementById("winnerName").textContent = team
 document.getElementById("winnerTime").textContent = "Süre: " + time
-
 document.getElementById("winnerPopup").classList.remove("hidden")
 
 launchConfetti()
