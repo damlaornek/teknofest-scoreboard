@@ -234,9 +234,16 @@ function pointsClass(i){
 function renderLeaderboard(results, winner){
     // leaderboard çiziliyor
 
-
+      const el = document.getElementById("leaderboardRows");
+  if(!el) return;
+}
 
 function showWinner(team,time){
+
+
+  const el = document.getElementById("leaderboardRows");
+  if(!el) return;
+}
 
 document.getElementById("winnerName").textContent = team
 document.getElementById("winnerTime").textContent = "Süre: " + time
@@ -244,12 +251,7 @@ document.getElementById("winnerTime").textContent = "Süre: " + time
 document.getElementById("winnerPopup").classList.remove("hidden")
 
 launchConfetti()
-
-}
-  const el = document.getElementById("leaderboardRows");
-  if(!el) return;
-}
-
+  
   el.innerHTML = "";
 
   results.forEach((r, i) => {
