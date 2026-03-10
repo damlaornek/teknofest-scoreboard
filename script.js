@@ -18,10 +18,9 @@ const TASK_POINTS = {
   5: 150
 };
 
-const START_TIME = new Date("2026-03-06T14:00:00"); // etkinlik günü değiştir
+const START_TIME = new Date(); // etkinlik günü değiştir
 const REFRESH_MS = 5000;
 
-let winnerShown = false;
 
 // ====== TIMER (GEÇEN SÜRE) ======
 function startElapsedTimer() {
@@ -230,7 +229,6 @@ function renderLeaderboard(results, winner) {
   const ticker = document.getElementById("tickerText");
   if (!ticker) return;
 
-}
 
   if (winner) {
     let winTimeText = "";
@@ -254,7 +252,7 @@ function renderLeaderboard(results, winner) {
   } else {
     ticker.textContent = `⚡ Yeni görev tamamlandı! Skorlar güncellendi`;
   }
-
+}
 
 // ====== BASİT TEST YÜKLEME ======
 async function loadScores() {
