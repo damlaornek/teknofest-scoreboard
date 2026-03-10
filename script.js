@@ -230,6 +230,8 @@ function renderLeaderboard(results, winner) {
   const ticker = document.getElementById("tickerText");
   if (!ticker) return;
 
+}
+
   if (winner) {
     let winTimeText = "";
     let shortTime = "";
@@ -252,7 +254,7 @@ function renderLeaderboard(results, winner) {
   } else {
     ticker.textContent = `⚡ Yeni görev tamamlandı! Skorlar güncellendi`;
   }
-}
+
 
 // ====== BASİT TEST YÜKLEME ======
 async function loadScores() {
