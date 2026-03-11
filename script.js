@@ -14,7 +14,7 @@ const TASK_SHEETS = [
 
 const TEAM_COL = "Takım adınızı giriniz.";
 const TASK_POINTS = {
-  
+
   1: 100,
   2: 50,
   3: 100,
@@ -75,6 +75,25 @@ function parseTimestamp(ts) {
 // ====== SKOR HESAPLAMA ======
 async function computeScores() {
   const teamData = {};
+
+  // ===== TAKIM KAYITLARINI ÇEK =====
+const teamRows = await fetchSheet("Form Yanıtları 0");
+
+for (const row of teamRows) {
+
+  const team = (row[TEAM_COL] || "").trim();
+  if (!team) continue;
+
+  if (!teamData[team]) {
+    teamData[team] = {
+      done: new Set(),
+      times: {},
+      finishTime: null,
+      score: 0
+    };
+  }
+
+}
 
   for (const t of TASK_SHEETS) {
     const rows = await fetchSheet(t.name);
