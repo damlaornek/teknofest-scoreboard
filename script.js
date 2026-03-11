@@ -21,7 +21,6 @@ const TASK_POINTS = {
 const START_TIME = new Date(); // etkinlik günü değiştir
 const REFRESH_MS = 5000;
 
-
 // ====== TIMER (GEÇEN SÜRE) ======
 function startElapsedTimer() {
   setInterval(() => {
