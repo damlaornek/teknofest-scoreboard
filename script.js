@@ -2,6 +2,7 @@
 const SHEET_ID = "1H0CHwZDOZ-TgvjJzrwSiDzgYTpn7J7kZZCNUbHFTag8";
 
 const TASK_SHEETS = [
+  { task: 0, name: "Form Yanıtları 0" },
   { task: 1, name: "Form Yanıtları 1" },
   { task: 2, name: "Form Yanıtları 2" },
   { task: 3, name: "Form Yanıtları 3" },
@@ -11,6 +12,7 @@ const TASK_SHEETS = [
 
 const TEAM_COL = "Takım adınızı giriniz.";
 const TASK_POINTS = {
+  0: 0,
   1: 100,
   2: 50,
   3: 100,
@@ -20,6 +22,7 @@ const TASK_POINTS = {
 
 const START_TIME = new Date(); // etkinlik günü değiştir
 const REFRESH_MS = 5000;
+
 
 // ====== TIMER (GEÇEN SÜRE) ======
 function startElapsedTimer() {
